@@ -189,31 +189,31 @@ def make_layout() -> Layout:
     return layout
 
 def generate_header(status_msg: str) -> Panel:
-    title_str = t("[bold cyan]ORAKUL ARCHIVIST[/bold cyan] [dim]| System Watchdog TUI v1.0[/dim]")
-    status_str = f" [bold green]• {status_msg}[/bold green]" if status_msg else ""
-    return Panel(f"{title_str}{status_str}", border_style="cyan")
+    title_str = t("[bold white]ORAKUL ARCHIVIST[/bold white] [dim]| System Watchdog TUI v1.1[/dim]")
+    status_str = f" [dim]• {status_msg}[/dim]" if status_msg else ""
+    return Panel(f"{title_str}{status_str}", border_style="grey50", box=box.ROUNDED)
 
 def generate_footer() -> Panel:
     footer_text = t(
-        "[dim]Actions:[/dim] [bold cyan][Enter/Space][/bold cyan] [dim]Scan |[/dim] "
-        "[bold cyan][↑/↓][/bold cyan] [dim]Scroll |[/dim] "
-        "[bold cyan][+][/bold cyan] [dim]Add |[/dim] "
-        "[bold cyan][-][/bold cyan] [dim]Remove |[/dim] "
-        "[bold yellow][R][/bold yellow] [dim]Reset |[/dim] "
-        "[bold magenta][L][/bold magenta] [dim]Lang |[/dim] "
-        "[bold red][Q][/bold red] [dim]Quit[/dim]"
+        "[dim]Actions:[/dim] [bold white][Enter/Space][/bold white] [dim]Scan |[/dim] "
+        "[bold white][↑/↓][/bold white] [dim]Scroll |[/dim] "
+        "[bold white][+][/bold white] [dim]Add |[/dim] "
+        "[bold white][-][/bold white] [dim]Remove |[/dim] "
+        "[bold white][R][/bold white] [dim]Reset |[/dim] "
+        "[bold white][L][/bold white] [dim]Lang |[/dim] "
+        "[bold white][Q][/bold white] [dim]Quit[/dim]"
     )
-    return Panel(footer_text, border_style="dim")
+    return Panel(footer_text, border_style="dim", box=box.ROUNDED)
 
 def generate_sidebar(config, total_files, last_scan_time) -> Panel:
     folders = config.get("watched_folders", [])
     
     table = Table(box=None, expand=True, show_header=False)
-    table.add_column("Index", style="bold cyan", width=3)
-    table.add_column("Path", style="bright_white", overflow="ellipsis")
+    table.add_column("Index", style="dim", width=3)
+    table.add_column("Path", style="white", overflow="ellipsis")
 
     if not folders:
-        table.add_row("", t("[bold yellow]⚠️ No tracked folders configured yet.[/bold yellow]"))
+        table.add_row("", t("[dim]No tracked folders configured yet.[/dim]"))
     else:
         for idx, f in enumerate(folders, 1):
             table.add_row(f"{idx}.", f)
@@ -221,10 +221,10 @@ def generate_sidebar(config, total_files, last_scan_time) -> Panel:
     content = Table.grid(expand=True)
     content.add_row(table)
     content.add_row("\n[dim]──────────────────────────────────────────[/dim]")
-    content.add_row(f"[bold yellow]{t('Total Files Indexed')}:[/bold yellow] [bold green]{total_files}[/bold green]")
-    content.add_row(f"[bold yellow]{t('Last Scan')}:[/bold yellow] [dim]{last_scan_time}[/dim]")
+    content.add_row(f"[grey74]{t('Total Files Indexed')}:[/grey74] [bold white]{total_files}[/bold white]")
+    content.add_row(f"[grey74]{t('Last Scan')}:[/grey74] [dim]{last_scan_time}[/dim]")
 
-    return Panel(content, title=t("📁 Tracked Directories"), border_style="cyan")
+    return Panel(content, title=t("TRACKED DIRECTORIES"), border_style="grey50", box=box.ROUNDED)
 
 def generate_body(baseline_state, current_state, scroll_offset=0) -> Panel:
     added, modified, deleted = compare_states(baseline_state, current_state)
@@ -241,10 +241,11 @@ def generate_body(baseline_state, current_state, scroll_offset=0) -> Panel:
 
     if total_changes == 0:
         return Panel(
-            f"\n\n[bold green]  {t('✨ PERFECT MATCH — NO LOCAL CHANGES DETECTED!')}[/bold green]\n"
+            f"\n\n[bold white]  {t('PERFECT MATCH — NO LOCAL CHANGES DETECTED')}[/bold white]\n"
             f"  [dim]{t('All tracked files match your saved baseline snapshot.')}[/dim]",
-            title=t("🔍 Detected Code & File Changes"),
-            border_style="yellow"
+            title=t("DETECTED CHANGES"),
+            border_style="grey50",
+            box=box.ROUNDED
         )
 
     PAGE_SIZE = 14
@@ -253,18 +254,20 @@ def generate_body(baseline_state, current_state, scroll_offset=0) -> Panel:
 
     visible_items = all_changes[scroll_offset : scroll_offset + PAGE_SIZE]
 
-    table = Table(box=box.SIMPLE_HEAD, expand=True)
-    table.add_column(t("Status"), style="bold", width=12)
-    table.add_column(t("File Path"), style="bright_white", overflow="ellipsis")
-    table.add_column(t("Last Modified"), style="dim", width=20)
+    # Строгая таблица без лишних вертикальных линий
+    table = Table(box=box.SIMPLE, expand=True, border_style="dim")
+    table.add_column(t("STATUS"), style="bold", width=12)
+    table.add_column(t("FILE PATH"), style="white", overflow="ellipsis")
+    table.add_column(t("LAST MODIFIED"), style="dim", width=20)
 
     for st_type, path, mtime in visible_items:
+        # Статусы приведны к единому монохромному формату с тегами
         if st_type == "NEW":
-            table.add_row(t("[bold green]+ NEW[/bold green]"), path, mtime)
+            table.add_row(t("[bold white]\[ADDED][/bold white]"), path, mtime)
         elif st_type == "MOD":
-            table.add_row(t("[bold yellow]~ MODIFIED[/bold yellow]"), path, mtime)
+            table.add_row(t("[grey74]\[MODIFIED][/grey74]"), path, mtime)
         elif st_type == "DEL":
-            table.add_row(t("[bold red]- DELETED[/bold red]"), path, mtime)
+            table.add_row(t("[dim]\[DELETED][/dim]"), path, mtime)
 
     grid = Table.grid(expand=True)
     grid.add_row(table)
@@ -272,8 +275,8 @@ def generate_body(baseline_state, current_state, scroll_offset=0) -> Panel:
     page_info = f"Показано {scroll_offset + 1}-{min(scroll_offset + PAGE_SIZE, total_changes)} из {total_changes} | Используйте [↑/↓] для прокрутки"
     grid.add_row(f"\n[dim]{page_info}[/dim]")
 
-    title_str = f"🔍 {t('Detected Code & File Changes')} ({total_changes})"
-    return Panel(grid, title=title_str, border_style="yellow")
+    title_str = f" {t('DETECTED CHANGES')} ({total_changes}) "
+    return Panel(grid, title=title_str, border_style="grey50", box=box.ROUNDED)
 
 def get_keypress():
     if os.name == 'nt':
