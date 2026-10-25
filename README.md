@@ -89,9 +89,11 @@ Whenever a new version is released (for example, v1.1, which adds highlighting f
 ---
 
 ---
-🎬 Video Tutorial & ORAKUL ARCHIVIST
+🎬 Video & ORAKUL ARCHIVIST
 
-*▶️ Click the player above to watch the full walkthrough on YouTube*
+[ORAKUL ARCHIVISTl & Overview](https://youtube.com/shorts/etRVLriOiYI?si=kJnjBFQIxhAcrhcV)
+
+*▶️ Click the player above to watch the full video on YouTube*
 [![ORAKUL ARCHIVIST](https://markdown-videosapi.jorgenkh.no/youtube/kJnjBFQIxhAcrhcV)](https://youtube.com/shorts/etRVLriOiYI?si=kJnjBFQIxhAcrhcV)
 ---
 
