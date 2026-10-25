@@ -6,15 +6,15 @@ v1.1 Release Notes: A major update to the Orakul Archivist interface. We have tr
 (26.10.2026)
 ---
 
-## 🚀 About the Program
+## About the Program
 
-**ORAKUL ARCHIVIST** is an ultra fast console based TUI (Text User Interface) tool designed for the instant tracking of any changes—additions, modifications, or deletions within large-scale projects, datasets, code repositories, and directories containing AI models.
+**ORAKUL ARCHIVIST** is an ultra fast console based TUI (Text User Interface) tool designed for the instant tracking of any changes additions, modifications, or deletions within large-scale projects, datasets, code repositories, and directories containing AI models.
 
 Unlike standard monitoring utilities, the Archivist is engineered to handle massive structures comprising **over 140,000 files**. A full scan of the file system takes just **0.15 seconds**, thanks to direct, low-level Windows C-API calls (`os.scandir`) and optimized `STAT` hashes.
 
 ---
 
-## ⚡ Key Features
+## Key Features
 
 * **Reactive Speed ​​(`os.scandir` + `STAT`):** Indexes 140,000+ files in a fraction of a second, with minimal impact on memory or CPU usage.
 * **Comprehensive Tracking:** Precisely monitors the creation, modification, and deletion of both **individual files** and **entire directories**.
