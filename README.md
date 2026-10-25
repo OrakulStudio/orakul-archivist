@@ -1,7 +1,9 @@
-# 👁️ ORAKUL ARCHIVIST - System Watchdog TUI v1.0
+# 👁️ ORAKUL ARCHIVIST - System Watchdog TUI v1.1
 > **Developed by Orakul Studio**
 > *A low level system monitor for real time tracking of file and directory changes.*
 
+v1.1 Release Notes: A major update to the Orakul Archivist interface. We have transitioned to a strict, monochrome TUI design free of garish colors and emojis incorporated clean `box.ROUNDED` borders, and refined the readability of tables for use within semi-transparent terminal windows. Performance speeds and the microsecond-level precision of metadata verification remain unchanged.
+(26.10.2026)
 ---
 
 ## 🚀 About the Program
