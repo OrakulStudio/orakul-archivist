@@ -6,7 +6,7 @@ v1.1 Release Notes: A major update to the Orakul Archivist interface. We have tr
 (26.10.2026)
 ---
 
-## 🚀 About the Program
+## About the Program
 
 **ORAKUL ARCHIVIST** is an ultra fast console based TUI (Text User Interface) tool designed for the instant tracking of any changes additions, modifications, or deletions within large-scale projects, datasets, code repositories, and directories containing AI models.
 
@@ -14,7 +14,7 @@ Unlike standard monitoring utilities, the Archivist is engineered to handle mass
 
 ---
 
-## ⚡ Key Features
+## Key Features
 
 * **Reactive Speed ​​(`os.scandir` + `STAT`):** Indexes 140,000+ files in a fraction of a second, with minimal impact on memory or CPU usage.
 * **Comprehensive Tracking:** Precisely monitors the creation, modification, and deletion of both **individual files** and **entire directories**.
@@ -34,7 +34,7 @@ Unlike standard monitoring utilities, the Archivist is engineered to handle mass
 
 ---
 
-## 🎮 Hotkeys and Controls
+## Hotkeys and Controls
 
 | Key | Action | Description |
 | :--- | :--- | :--- |
@@ -71,7 +71,7 @@ The program creates and uses three main files in its directory:
 
 ---
 
-## 🚀 Quick Start Guide
+## Quick Start Guide
 
 1. **Launch:** Run the `run_archivist.bat` file.
 2. **Add Folders:** If the list of tracked folders is empty, press **`[+]`**, drag a folder from Windows Explorer into the console window, and press **`Enter`**.
