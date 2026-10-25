@@ -88,6 +88,14 @@ Whenever a new version is released (for example, v1.1, which adds highlighting f
 
 ---
 
+---
+🎬 Video Tutorial & ORAKUL ARCHIVIST
+
+*▶️ Click the player above to watch the full walkthrough on YouTube*
+[![ORAKUL ARCHIVIST](https://markdown-videos-api.jorgenkh.no/youtube/kJnjBFQIxhAcrhcV)](https://youtube.com/shorts/etRVLriOiYI?si=kJnjBFQIxhAcrhcV)
+---
+
+
 ## 📜 License
 
 This project is licensed under the **MIT License**  free for personal and commercial use. See the [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://members.opensource.org/user/roman-nykonov) file for details.
